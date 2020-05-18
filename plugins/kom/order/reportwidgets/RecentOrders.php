@@ -52,7 +52,7 @@ class RecentOrders extends ReportWidgetBase
 
   private function getRecentOrders(){
 
-    // where('viewed', 0)->
+    // where('viewed', 0)-> // only not viewved
 
     $this->vars['lastOrders'] = Order::take($this->property('number'))->orderBy('created_at', 'DESC')->get();
   }
