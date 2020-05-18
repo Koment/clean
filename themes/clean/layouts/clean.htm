@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sona Template">
+    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ this.page.title }}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/elegant-icons.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/flaticon.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/owl.carousel.min.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/nice-select.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/jquery-ui.min.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/magnific-popup.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/slicknav.min.css' | theme }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css' | theme }}" type="text/css">
+    {% styles %}
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    {% partial 'site/header' %}
+
+    {% page %}
+
+    {% partial 'site/footer' %}
+
+    <!-- Js Plugins -->
+    <script src="{{ 'assets/js/jquery-3.3.1.min.js' | theme }}"></script>
+    <script src="{{ 'assets/js/bootstrap.js' | theme }}"></script>
+    <script src="{{ 'assets/js/jquery.magnific-popup.min.js' | theme }}"></script>
+    <script src="{{ 'assets/js/jquery.nice-select.min.js' | theme }}"></script>
+    <script src="{{ 'assets/js/jquery-ui.min.js' | theme }}"></script>
+    <script src="{{ 'assets/js/jquery.slicknav.js' | theme }}"></script>
+    <script src="{{ 'assets/js/owl.carousel.min.js' | theme }}"></script>
+
+    {% scripts %}
+
+    <script src="{{ 'assets/js/main.js' | theme }}"></script>
+    {% framework extras %}
+</body>
+
+</html>

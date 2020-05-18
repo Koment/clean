@@ -1,0 +1,43 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        required: 0
+        type: text
+    type:
+        label: 'Тип уборки'
+        span: auto
+        type: text
+    description:
+        label: Описание
+        size: ''
+        span: auto
+        type: textarea
+    cost:
+        label: 'Цена за М2'
+        span: auto
+        type: number
+    poster:
+        label: 'Poster image'
+        span: auto
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        imageWidth: '200'
+        imageHeight: '200'
+        type: fileupload
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    services:
+        label: Services
+        span: auto
+        nameFrom: name
+        descriptionFrom: description
+        type: relation

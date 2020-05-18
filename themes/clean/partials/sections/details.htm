@@ -1,0 +1,188 @@
+[builderList]
+modelClass = "Kom\Cleantype\Models\Cleantype"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "type"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<!-- Home Room Section Begin -->
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<!-- <ul class="record-list">
+    {% for record in records %}
+        <li>
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+            {% spaceless %}
+                {% if detailsPage %}
+                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                {% endif %}
+
+                {{ attribute(record, displayColumn) }}
+
+                {% if detailsPage %}
+                    </a>
+                {% endif %}
+            {% endspaceless %}
+        </li>
+    {% else %}
+        <li class="no-data">{{ noRecordsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %} -->
+
+<section class="hp-room-section">
+    <div class="container-fluid">
+        <div class="hp-room-items">
+            <div class="row">
+
+              {% for record in records %}
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="hp-room-item set-bg" data-setbg="{{ record.poster.thumb(628.25, 600, {'mode' : 'crop'}) }}">
+                        <div class="hr-text">
+                            <h3>{{ record.type }}</h3>
+                            <h2>{{ record.cost }}<span> руб/M2</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="price/details/{{ record.id }}" class="primary-btn">подробнее...</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                    {{ noRecordsMessage }}
+                {% endfor %}
+                <!-- <div class="col-lg-3 col-md-6">
+                    <div class="hp-room-item set-bg" data-setbg="{{ 'assets/img/room/room-b2.jpg' | theme }}">
+                        <div class="hr-text">
+                            <h3>Premium King Room</h3>
+                            <h2>159$<span>/Pernight</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="hp-room-item set-bg" data-setbg="{{ 'assets/img/room/room-b3.jpg' | theme }}">
+                        <div class="hr-text">
+                            <h3>Deluxe Room</h3>
+                            <h2>198$<span>/Pernight</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="hp-room-item set-bg" data-setbg="{{ 'assets/img/room/room-b4.jpg' | theme }}">
+                        <div class="hr-text">
+                            <h3>Family Room</h3>
+                            <h2>299$<span>/Pernight</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Home Room Section End -->

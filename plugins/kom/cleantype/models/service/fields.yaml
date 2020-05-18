@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: 'Sevice name'
+        span: left
+        type: text
+    cost:
+        label: Cost
+        span: right
+        type: number
+    slug:
+        label: Slug
+        span: left
+        preset:
+            field: name
+            type: slug
+        type: text

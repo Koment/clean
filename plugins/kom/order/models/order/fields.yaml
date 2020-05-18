@@ -1,0 +1,31 @@
+fields:
+    done:
+        label: Done
+        span: auto
+        type: switch
+    cleantype:
+        label: 'Clean type'
+        span: left
+        type: text
+    date:
+        label: 'Order date'
+        mode: datetime
+        span: right
+        type: datepicker
+    place:
+        label: Place
+        span: left
+        type: text
+    area:
+        label: Area
+        span: right
+        type: text
+    phone:
+        label: Phone
+        span: left
+        type: text
+    created_at:
+        label: 'Created at'
+        mode: datetime
+        span: right
+        type: datepicker

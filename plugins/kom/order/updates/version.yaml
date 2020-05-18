@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table kom_order_'
+    - builder_table_create_kom_order_.php
+1.0.3:
+    - 'Updated table kom_order_'
+    - builder_table_update_kom_order_.php
+1.0.4:
+    - 'Updated table kom_order_'
+    - builder_table_update_kom_order__2.php

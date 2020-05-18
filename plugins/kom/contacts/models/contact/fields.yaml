@@ -1,0 +1,24 @@
+fields:
+    viewed:
+        label: Viewed
+        span: auto
+        type: switch
+    name:
+        label: Name
+        span: left
+        type: text
+    email:
+        label: Email
+        span: right
+        readOnly: 0
+        type: text
+    message:
+        label: Message
+        size: ''
+        span: full
+        type: textarea
+    created_at:
+        label: 'Send at'
+        mode: datetime
+        span: auto
+        type: datepicker

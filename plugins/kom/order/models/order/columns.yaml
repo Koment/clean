@@ -1,0 +1,32 @@
+columns:
+    cleantype:
+        label: 'Clean type'
+        type: text
+        sortable: true
+    date:
+        label: 'Order date'
+        type: datetime
+        searchable: true
+        sortable: true
+    place:
+        label: Place
+        type: text
+        sortable: true
+    area:
+        label: Area
+        type: text
+        sortable: true
+    phone:
+        label: Phone
+        type: text
+        searchable: true
+        sortable: true
+    done:
+        label: Done
+        type: switch
+        sortable: true
+    created_at:
+        label: 'Created at'
+        type: datetime
+        searchable: true
+        sortable: true

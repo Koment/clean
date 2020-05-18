@@ -1,0 +1,11 @@
+plugin:
+    name: 'kom.contacts::lang.plugin.name'
+    description: 'kom.contacts::lang.plugin.description'
+    author: Kom
+    icon: oc-icon-envelope
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Contacts
+        url: kom/contacts/contacts
+        icon: icon-envelope

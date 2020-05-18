@@ -1,0 +1,10 @@
+name: Sevices
+form: $/kom/cleantype/models/service/fields.yaml
+modelClass: Kom\Cleantype\Models\Service
+defaultRedirect: kom/cleantype/sevices
+create:
+    redirect: 'kom/cleantype/sevices/update/:id'
+    redirectClose: kom/cleantype/sevices
+update:
+    redirect: kom/cleantype/sevices
+    redirectClose: kom/cleantype/sevices

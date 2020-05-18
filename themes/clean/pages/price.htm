@@ -1,0 +1,310 @@
+title = "Прайс"
+url = "/price/:page?"
+layout = "clean"
+is_hidden = 0
+
+[builderList]
+modelClass = "Kom\Cleantype\Models\Cleantype"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "type"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 6
+pageNumber = "{{ :page }}"
+==
+{% partial 'sections/breadcrumb' %}
+
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<!-- <ul class="record-list">
+    {% for record in records %}
+        <li>
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+            {% spaceless %}
+                {% if detailsPage %}
+                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                {% endif %}
+
+                {{ record.name }}
+
+                {% if detailsPage %}
+                    </a>
+                {% endif %}
+            {% endspaceless %}
+        </li>
+    {% else %}
+        <li class="no-data">{{ noRecordsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %} -->
+
+    <!-- Rooms Section Begin -->
+    <section class="rooms-section spad">
+        <div class="container">
+            <div class="row">
+
+              {% for record in records %}
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ record.poster.thumb(360, 233.5, {'mode' : 'crop'}) }}" alt="">
+                        <div class="ri-text">
+                            <h4>{{ record.type }}</h4>
+                            <h3>{{record.cost}}<span>  руб/м2</span></h3>
+                            <table>
+                                <tbody>
+
+                                  {% for service in record.services %}
+
+                                    <tr>
+                                        <td class="r-o">{{ service.name }}:</td>
+                                        <td>{{ service.cost }}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr> -->
+
+                                  {% endfor %}
+                                </tbody>
+                            </table>
+                            <a href="price/details/{{ record.id }}" class="primary-btn">подробнее...</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% else %}
+                    <li class="no-data">{{ noRecordsMessage }}</li>
+                {% endfor %}
+
+                <!-- <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ 'assets/img/room/room-2.jpg' | theme }}" alt="">
+                        <div class="ri-text">
+                            <h4>Deluxe Room</h4>
+                            <h3>159$<span>/Pernight</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ 'assets/img/room/room-3.jpg' | theme }}" alt="">
+                        <div class="ri-text">
+                            <h4>Double Room</h4>
+                            <h3>159$<span>/Pernight</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ 'assets/img/room/room-4.jpg' | theme }}" alt="">
+                        <div class="ri-text">
+                            <h4>Luxury Room</h4>
+                            <h3>159$<span>/Pernight</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ 'assets/img/room/room-5.jpg' | theme }}" alt="">
+                        <div class="ri-text">
+                            <h4>Room With View</h4>
+                            <h3>159$<span>/Pernight</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="{{ 'assets/img/room/room-6.jpg' | theme }}" alt="">
+                        <div class="ri-text">
+                            <h4>Small View</h4>
+                            <h3>159$<span>/Pernight</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Size:</td>
+                                        <td>30 ft</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Capacity:</td>
+                                        <td>Max persion 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Bed:</td>
+                                        <td>King Beds</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Services:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="#" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div> -->
+
+                {% if records.lastPage > 1 %}
+                    <!-- <ul class="pagination">
+                        {% if records.currentPage > 1 %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                        {% endif %}
+
+                        {% for page in 1..records.lastPage %}
+                            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if records.lastPage > records.currentPage %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                        {% endif %}
+                    </ul> -->
+
+                    <div class="col-lg-12">
+                        <div class="room-pagination">
+
+                          {% if records.currentPage > 1 %}
+                            <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">Prev <i class="fa fa-long-arrow-left"></i></a>
+                          {% endif %}
+
+                          {% for page in 1..records.lastPage %}
+                              <!-- <li class="list-group list-group-horizontal {{ records.currentPage == page ? 'active' : null }}"> -->
+                                  <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}" class="{{ records.currentPage == page ? 'active' : null }}">{{ page }}</a>
+                              <!-- </li> -->
+                          {% endfor %}
+
+                            <!-- <a href="#">1</a>
+                            <a href="#">2</a> -->
+
+                          {% if records.lastPage > records.currentPage %}
+                            <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next <i class="fa fa-long-arrow-right"></i></a>
+                          {% endif %}
+
+                        </div>
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Rooms Section End -->

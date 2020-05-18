@@ -1,0 +1,97 @@
+title = "Блог"
+url = "/blog"
+layout = "clean"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog"
+postPage = "blog-details"
+exceptCategories = "pricing"
+==
+{% set posts = blogPosts.posts %}
+
+
+{% partial 'sections/breadcrumb' %}
+
+
+    <section class="blog-section blog-page spad">
+        <div class="container">
+            <div class="row">
+
+
+            <!-- <ul class="post-list">
+                {% for post in posts %}
+                    <li>
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+                        <p class="info">
+                            Posted
+                            {% if post.categories.count %} in {% endif %}
+                            {% for category in post.categories %}
+                                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                            on {{ post.published_at|date('M d, Y') }}
+                        </p>
+
+                        <p class="excerpt">{{ post.summary|raw }}</p>
+                    </li>
+                {% else %}
+                    <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
+                {% endfor %}
+            </ul> -->
+
+
+            {% for post in posts %}
+            <!-- {{post.featured_images[0].path}} -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="{{post.featured_images[0].path}}">
+                    <div class="bi-text">
+
+                      {% for category in post.categories %}
+                          <span class="b-tag"><a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}</span>
+                      {% endfor %}
+                        <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> {{ post.published_at|date('M d, Y') }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+    <!-- Blog Section Begin -->
+
+
+                {% if posts.lastPage > 1 %}
+                    <ul class="pagination">
+                        {% if posts.currentPage > 1 %}
+                            <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+                        {% endif %}
+
+                        {% for page in 1..posts.lastPage %}
+                            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                                <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if posts.lastPage > posts.currentPage %}
+                            <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+
+
+
+
+                <div class="col-lg-12">
+                    <div class="load-more">
+                        <a href="#" class="primary-btn">Load More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->

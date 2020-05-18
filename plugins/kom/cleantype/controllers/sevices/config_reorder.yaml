@@ -1,0 +1,4 @@
+title: Sevices
+modelClass: Kom\Cleantype\Models\Service
+toolbar:
+    buttons: reorder_toolbar

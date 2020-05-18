@@ -1,0 +1,11 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        sortable: true
+    type:
+        label: 'Тип уборки'
+        type: text
+        searchable: true
+        sortable: true

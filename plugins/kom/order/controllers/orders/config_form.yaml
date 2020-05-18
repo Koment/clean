@@ -1,0 +1,10 @@
+name: Orders
+form: $/kom/order/models/order/fields.yaml
+modelClass: Kom\Order\Models\Order
+defaultRedirect: kom/order/orders
+create:
+    redirect: 'kom/order/orders/update/:id'
+    redirectClose: kom/order/orders
+update:
+    redirect: kom/order/orders
+    redirectClose: kom/order/orders

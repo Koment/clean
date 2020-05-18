@@ -1,0 +1,11 @@
+plugin:
+    name: 'kom.order::lang.plugin.name'
+    description: 'kom.order::lang.plugin.description'
+    author: Kom
+    icon: oc-icon-shopping-cart
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Orders
+        url: kom/order/orders
+        icon: icon-shopping-cart

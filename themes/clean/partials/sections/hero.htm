@@ -1,0 +1,70 @@
+[Order_form]
+==
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <h1>Сервис быстрой уборки!</h1>
+                    <p>Впадлу урать хату/офис? Обратись к нам!</p>
+                    <a href="{{ 'price' | page }}" class="primary-btn">Наш прайс</a>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+
+            {% component 'Order_form' %}
+
+            <!--
+                <div class="booking-form">
+                    <h3>Заказать уборку</h3>
+                    <form action="#">
+                        <div class="check-date">
+                            <label for="date-in">Дата:</label>
+                            <input type="text" class="date-input" id="date-in">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="check-date">
+                            <label for="date-out">Check Out:</label>
+                            <input type="text" class="date-input" id="date-out">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="select-option">
+                            <label for="flat">Помещение:</label>
+                            <select id="flat">
+                                <option value="">квартира</option>
+                                <option value="">офис</option>
+                            </select>
+                        </div>
+                        <div class="select-option">
+                            <label for="area">Площадь:</label>
+                            <select id="room">
+                                <option value="">1 Room</option>
+                                <option value="">2 Room</option>
+                            </select>
+                        </div>
+                        <div class="select-input">
+                            <label for="area">Площадь M2:</label>
+                            <input type="text" name="area" id="area">
+                        </div>
+
+                        <div class="select-input">
+                            <label for="area">Телефон:</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+
+                        <button type="submit">Заказать</button>
+                    </form>
+                </div>
+             -->
+             </div>
+        </div>
+    </div>
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="{{ 'assets/img/hero/hero-1.jpg'|theme }}"></div>
+        <div class="hs-item set-bg" data-setbg="{{ 'assets/img/hero/hero-2.jpg'|theme }}"></div>
+        <div class="hs-item set-bg" data-setbg="{{ 'assets/img/hero/hero-3.jpg'|theme }}"></div>
+    </div>
+</section>
+<!-- Hero Section End -->

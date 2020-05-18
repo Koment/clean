@@ -1,0 +1,86 @@
+<!-- <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1"> -->
+    <div class="booking-form">
+
+        <h3>Заказать уборку</h3>
+
+        <form data-request="onSend">
+
+            <div class="select-option">
+                <label for="area">Тип уборки:</label>
+                <select id="room" name="cleantype">
+
+                  {% for type in types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                  {% endfor %}
+                  
+                </select>
+            </div>
+
+            <div class="check-date">
+                <label for="date-in">Дата:</label>
+                <input type="text" class="form_datetime" id="date-in" name="date">
+                <i class="icon_calendar"></i>
+            </div>
+
+            <!-- class="date-input" -->
+
+            <!-- <div class="check-date">
+                <label for="date-out">Check Out:</label>
+                <input type="text" class="date-input" id="date-out">
+                <i class="icon_calendar"></i>
+            </div> -->
+
+            <div class="select-option">
+                <label for="place">Помещение:</label>
+                <select id="place" name="place">
+                    <option value="квартира">квартира</option>
+                    <option value="офис">офис</option>
+                </select>
+            </div>
+
+            <!-- <div class="select-option">
+                <label for="area">Площадь:</label>
+                <select id="room">
+                    <option value="">1 Room</option>
+                    <option value="">2 Room</option>
+                </select>
+            </div> -->
+
+            <div class="select-input">
+                <label for="area">Площадь M2:</label>
+                <input type="text" name="area" id="area">
+            </div>
+
+            <div class="select-input">
+                <label for="area">Телефон:</label>
+                <input type="text" name="phone" id="phone">
+            </div>
+
+            <button type="submit">Заказать</button>
+        </form>
+    </div>
+
+
+    {% flash success %}
+
+      <div class="alert alert-success">{{ message }}</div>
+
+    {% endflash %}
+
+
+    <div>
+
+      <ul class="list-group">
+
+        {% for error in errors.all() %}
+
+          <li class="list-group-item list-group-item-danger">{{ error }}</li>
+
+        {% endfor %}
+
+      </ul>
+
+    </div>
+
+
+<!-- </div> -->

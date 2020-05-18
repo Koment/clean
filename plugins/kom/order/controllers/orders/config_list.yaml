@@ -1,0 +1,12 @@
+list: $/kom/order/models/order/columns.yaml
+modelClass: Kom\Order\Models\Order
+title: Orders
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'kom/order/orders/update/:id'

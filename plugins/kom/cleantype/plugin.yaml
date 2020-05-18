@@ -1,0 +1,16 @@
+plugin:
+    name: 'kom.cleantype::lang.plugin.name'
+    description: 'kom.cleantype::lang.plugin.description'
+    author: Kom
+    icon: oc-icon-rub
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Cleantype
+        url: kom/cleantype/cleantype
+        icon: icon-group
+        sideMenu:
+            side-menu-item:
+                label: Sevices
+                url: kom/cleantype/sevices
+                icon: icon-sitemap

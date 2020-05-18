@@ -1,0 +1,10 @@
+name: Cleantype
+form: $/kom/cleantype/models/cleantype/fields.yaml
+modelClass: Kom\Cleantype\Models\Cleantype
+defaultRedirect: kom/cleantype/cleantype
+create:
+    redirect: 'kom/cleantype/cleantype/update/:id'
+    redirectClose: kom/cleantype/cleantype
+update:
+    redirect: kom/cleantype/cleantype
+    redirectClose: kom/cleantype/cleantype

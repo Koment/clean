@@ -1,0 +1,5 @@
+title: Cleantype
+modelClass: Kom\Cleantype\Models\Cleantype
+nameFrom: type
+toolbar:
+    buttons: reorder_toolbar
