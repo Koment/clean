@@ -2,16 +2,20 @@
 
     <h3>Связаться с намии</h3>
 
-    <form data-request="onSend" class="contact-form">
+    <form class="contact-form" data-request="onSend" data-request-validate>
         <div class="row">
             <div class="col-lg-6">
-                <input type="text" placeholder="Your Name" name="name">
+                <input type="text" placeholder="Ваше имя" name="name">
+                <div data-validate-for="name"></div>
             </div>
             <div class="col-lg-6">
-                <input type="email" placeholder="Your Email" name="email">
+                <input type="email" placeholder="Ваш Email" name="email">
+                <div data-validate-for="email"></div>
             </div>
-            <div class="col-lg-12">
-                <textarea placeholder="Your Message" name="content"></textarea>
+            <!-- <div class="col-lg-12"> -->
+            <div class="" style="padding: 0 15px;">
+                <textarea placeholder="Ваше сообщение" name="content"></textarea>
+                <div data-validate-for="content"></div>
                 <button type="submit">Submit Now</button>
             </div>
         </div>

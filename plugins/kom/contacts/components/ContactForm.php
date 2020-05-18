@@ -12,6 +12,8 @@ use Kom\Contacts\Models\Contact;
 
 use Validator;
 
+use October\Rain\Exception\ValidationException;
+
 use Redirect;
 
 use Carbon\Carbon;
@@ -33,7 +35,12 @@ class ContactForm extends ComponentBase {
   }
 
 
+
+
+
   public function onSend () {
+
+
 
     $validator = Validator::make(
 
@@ -59,12 +66,19 @@ class ContactForm extends ComponentBase {
 
     );
 
-    if ($validator->fails()){
+        // если нашли ошибки, то создаём исключение
+    if ($validator->fails()) {
 
-      return Redirect::back()->withErrors($validator->messages()->all());
+        throw new ValidationException($validator);
+    }
 
+    // if ($validator->fails()){
+    //
+    //   return Redirect::back()->withErrors($validator->messages()->all());
+    //
+    // }
 
-    } else {
+    else {
 
       // $vars = ['name' => Input::get('name'), 'email' => Input::get('email'), 'content' => Input::get('conent')];
 
