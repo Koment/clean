@@ -9,4 +9,5 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'kom/contacts/contacts/update/:id'
+# recordUrl: 'kom/contacts/contacts/update/:id'
+recordUrl: 'kom/contacts/contacts/preview/:id'
