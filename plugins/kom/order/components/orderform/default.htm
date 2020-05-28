@@ -12,7 +12,7 @@
                   {% for type in types %}
                     <option value="{{ type }}">{{ type }}</option>
                   {% endfor %}
-                  
+
                 </select>
             </div>
 
@@ -46,9 +46,15 @@
                 </select>
             </div> -->
 
-            <div class="select-input">
+            <div class="select-option">
                 <label for="area">Площадь M2:</label>
-                <input type="text" name="area" id="area">
+                <!-- <input type="text" name="area" id="area"> -->
+                <select id="area" name="area">
+                    <option value="меньше 45">меньше 45</option>
+                    <option value="до 85">до 85</option>
+                    <option value="до 150">до 150</option>
+                    <option value="более 150">более 150</option>
+                </select>
             </div>
 
             <div class="select-input">
