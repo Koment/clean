@@ -734,7 +734,7 @@ ul, ol {
 	overflow: hidden;
 }
 .hp-room-items .hp-room-item:hover .hr-text {
-	bottom: 135px;
+	top: 135px;
 }
 .hp-room-items .hp-room-item:hover .hr-text h2 {
 	margin-bottom: 30px;
@@ -743,7 +743,7 @@ ul, ol {
 	position: absolute;
 	/* left: 45px;
 	right: 25px; */
-	bottom: -250px;
+	top: 450px;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;

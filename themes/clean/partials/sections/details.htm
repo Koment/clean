@@ -69,13 +69,15 @@ pageNumber = "{{ :page }}"
                             <h2>{{ record.cost }}<span> руб/M2</span></h2>
                             <table>
                                 <tbody>
+                                  {% for service in record.services %}
+
                                     <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
+                                        <td class="r-o">{{ service.name }}:</td>
+                                        <td>{{ service.cost }}</td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td class="r-o">Capacity:</td>
-                                        <td>Max persion 5</td>
+                                        <td>Max persion 3</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Bed:</td>
@@ -84,10 +86,12 @@ pageNumber = "{{ :page }}"
                                     <tr>
                                         <td class="r-o">Services:</td>
                                         <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
+                                    </tr> -->
+
+                                  {% endfor %}
                                 </tbody>
                             </table>
-                            <a href="price/details/{{ record.id }}" class="primary-btn">подробнее...</a>
+                            <a href="price/details/{{ record.id }}" class="btn btn-outline-secondary">подробнее...</a>
                         </div>
                     </div>
                 </div>
